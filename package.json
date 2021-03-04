@@ -1,7 +1,7 @@
 {
-	"name": "tmp-sub-app-topbar",
+	"name": "tmp-sub-app-template",
 	"version": "1.0.0",
-	"description": "UAC PoC - app topbar subapp",
+	"description": "UAC PoC - subapp template",
 	"scripts": {
 		"cleanup": "rimraf ./dist",
 		"build": "npm run cleanup && webpack --config build/webpack.config.js --mode production --progress",
