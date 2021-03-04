@@ -13,6 +13,6 @@ export const AppTemplateHome: React.FC = () => {
 		</div>
 		<div className={'bottom-line'}>
 			Click <a>here</a> to read the manual.
-		</div>˚
+		</div>
 	</div>;
 };
