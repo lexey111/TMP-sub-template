@@ -9,7 +9,7 @@ export const AppManual: React.FC = () => {
 			Sub-app template: manual
 		</TcViewTitle>
 
-		<TcSmartLayout navigationMode={'scroll'}>
+		<TcSmartLayout navigationMode={'scroll'} layoutClassName={'template-manual'}>
 			<TcNavAnchor>Overview</TcNavAnchor>
 
 			<LipsumPara paragraphs={12}/>
