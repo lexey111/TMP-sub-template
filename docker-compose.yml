@@ -1,6 +1,6 @@
 version: '3'
 services:
-  tmp-host:
+  tmp-sub-template:
     working_dir: /app
     build: .
     command: npm run build
