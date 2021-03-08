@@ -175,6 +175,7 @@ module.exports = (env, args) => {
 		devServer: {
 			headers: {
 				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Expose-Headers': 'Content-Length'
 			},
 			contentBase: path.resolve('./dist'),
 			historyApiFallback: true,
