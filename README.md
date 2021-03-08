@@ -1,8 +1,12 @@
-# TMP SubApp template
-
-Includes two views: `template/home` to display no home page and `template/example`  - just a template for a view.
+# TMP SubApp Template sub-app
 
 ## How to build
+
+### Quick start
+
+You can just run `docker_build.cmd` script.
+
+Before run please remove `dist` folder, if any.
 
 ### Docker
 
@@ -14,11 +18,6 @@ To generate `dist` folder without installing NPM packages and adding local garba
 4. Remove the container: `docker rm temp`
 5. Remove the image: `docker image rm template`
 
-That's it.
-
-P.S. On Linux or Mac you can just run `docker_build.cmd` script.
-P.P.S. Before run please remove `dist` folder, if any.
-
 ### Docker compose
 
 #### Production mode
@@ -28,12 +27,19 @@ placed into `dist` folder.
 
 #### Development + watch mode
 
-In root folder run `docker-compose -f docker-compose.watch.yml up` to build the files. Result will be placed into `dist` folder and application will start watching. Webserver will be available on URL `localhost:3030`.
+In root folder run `docker-compose -f docker-compose.watch.yml up` to build the files. Result will be placed into `dist` folder and Webpack will start watching.
 
-`node_modules` and `dist` folders will be mapped. Webpack will start watching.
+`node_modules` and `dist` folders will be mapped.
+
+#### Development + online mode
+
+In root folder run `docker-compose -f docker-compose.start.yml up` to build the files. Result will be placed into `dist` folder and application will start watching. Webserver will be available on URL `localhost:3034`.
+
+`node_modules` and `dist` folders will be mapped.
 
 ### CLI (with local NPM install)
 
 1. `npm i`
 2. `npm run build` or `npm run build:dev`
-3. `npm run build --watch` or `npm run build:dev --watch` to start watching.
+3. `npm run build:watch` to start watching.
+3. `npm run start` to run dev webserver.

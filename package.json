@@ -2,13 +2,16 @@
 	"name": "tmp-sub-app-template",
 	"version": "1.0.0",
 	"description": "UAC PoC - subapp template",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lexey111/TMP-sub-template"
+	},
 	"scripts": {
 		"cleanup": "rimraf ./dist",
-		"build": "npm run cleanup && webpack --config build/webpack.config.js --mode production --progress",
+		"build": "npm run cleanup && webpack --config build/webpack.config.js --mode production",
 		"build:dev": "webpack --config build/webpack.config.js --mode development --progress",
 		"build:watch": "webpack --config build/webpack.config.js --mode development --watch",
-		"eslint": "eslint --cache --ext .ts,.tsx src",
-		"eslint:dump": "eslint --print-config .eslintrc.json"
+		"start": "webpack serve --config build/webpack.config.js --mode development --host 0.0.0.0"
 	},
 	"keywords": [
 		"uac",
@@ -30,6 +33,7 @@
 		"@types/webpack": "^4.41.26",
 		"@typescript-eslint/eslint-plugin": "^4.16.1",
 		"@typescript-eslint/parser": "^4.16.1",
+		"copy-webpack-plugin": "^7.0.0",
 		"css-loader": "^5.1.1",
 		"eslint": "^7.21.0",
 		"eslint-loader": "^4.0.2",
@@ -49,6 +53,7 @@
 		"ts-loader": "^8.0.17",
 		"typescript": "^4.2.3",
 		"webpack": "^5.24.3",
-		"webpack-cli": "^4.5.0"
+		"webpack-cli": "^4.5.0",
+		"webpack-dev-server": "^3.11.2"
 	}
 }

@@ -3,7 +3,7 @@ services:
   tmp-sub-template:
     working_dir: /app
     build: .
-    command: npm run build:watch
+    command: npm run start
     volumes:
       - ./:/app
       - /app/node_modules

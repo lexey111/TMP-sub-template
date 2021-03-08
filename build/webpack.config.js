@@ -6,6 +6,7 @@ const fs = require('fs');
 
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const TMPCorePath = 'node_modules/tmp-core';
 const TMPConfigFile = path.resolve(`${TMPCorePath}/src/core/@exports/build-environment.js`);
@@ -154,11 +155,31 @@ module.exports = (env, args) => {
 				NODE_ENV: isProduction ? 'production' : 'development',
 				DEBUG: !isProduction
 			}),
+			new CopyWebpackPlugin({
+				patterns: [
+					{
+						from: path.resolve(sourcePath, '@index.tsx'), // any existing file
+						to: path.resolve(outPath, 'status.js'), // special file to check health status
+						transform: function () {
+							return 'ok'
+						}
+					},
+				]
+			}),
 		],
 		watchOptions: {
 			aggregateTimeout: 100,
 			ignored: /node_modules/,
 			poll: 300
+		},
+		devServer: {
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+			},
+			contentBase: path.resolve('./dist'),
+			historyApiFallback: true,
+			compress: false,
+			port: 3034,
 		},
 	};
 
