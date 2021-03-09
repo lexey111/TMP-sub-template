@@ -197,6 +197,7 @@ services:
 		name: 'My cool application',
 		online: true,
 		homeCard: true, // if you provide it
+		// also can be an array of names like ['home', 'second_card']
 		entry: 'http://localhost:3031/my_cool_app.js', // <- set up the port!
 		styles: 'http://localhost:3031/my_cool_app.css',
 		routes: [{ // <-- if you need an icon in sidebar
@@ -250,6 +251,7 @@ services:
 		name: 'My cool application',
 		dist: 'TMP-sub-mycool-app/dist',
 		homeCard: true, // if you provide it
+		// also can be an array of names like ['home', 'second_card']
 		entry: 'my_cool_app.js',
 		styles: 'my_cool_app.css',
 		routes: [{ // <-- if you need an icon in sidebar
