@@ -146,7 +146,9 @@ docker image rm template
 			<SyntaxHighlight content={`devServer: {
 	headers: {
 		'Access-Control-Allow-Origin': '*',
-		'Access-Control-Expose-Headers': 'Content-Length'
+		'Access-Control-Expose-Headers': 'Content-Length',
+		'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+		'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
 	},
 	contentBase: path.resolve('./dist'),
 	historyApiFallback: true,
@@ -190,16 +192,14 @@ services:
 		name: 'Vue JS',
 		dist: 'TMP-sub-vue/dist',
 		homeCard: true,
-		entry: 'example_vue.js',
-		styles: 'example_vue.css'
+		port: 3031
 	},
 	my_cool_app: { // <- here
 		name: 'My cool application',
 		online: true,
 		homeCard: true, // if you provide it
 		// also can be an array of names like ['home', 'second_card']
-		entry: 'http://localhost:3031/my_cool_app.js', // <- set up the port!
-		styles: 'http://localhost:3031/my_cool_app.css',
+		port: 3034,
 		routes: [{ // <-- if you need an icon in sidebar
 			path: 'mycoolapp', // url: ...site.com/mycoolapp
 			view: 'my_cool_app/my_cool_page', // bundleName/viewName
@@ -217,15 +217,11 @@ services:
 		name: 'Vue JS',
 		dist: 'TMP-sub-vue/dist',
 		homeCard: true,
-		entry: 'example_vue.js',
-		styles: 'example_vue.css'
 	},
 	my_cool_app: { // <- here
 		name: 'My cool application',
 		dist: 'TMP-sub-mycool-app/dist',
 		homeCard: true, // if you provide it
-		entry: 'my_cool_app.js',
-		styles: 'my_cool_app.css',
 		routes: [{ // <-- if you need an icon in sidebar
 			path: 'mycoolapp', // url: ...site.com/mycoolapp
 			view: 'my_cool_app/my_cool_page', // bundleName/viewName
@@ -244,16 +240,12 @@ services:
 		name: 'Vue JS',
 		dist: 'TMP-sub-vue/dist',
 		homeCard: true,
-		entry: 'example_vue.js',
-		styles: 'example_vue.css'
 	},
 	my_cool_app: { // <- here
 		name: 'My cool application',
 		dist: 'TMP-sub-mycool-app/dist',
 		homeCard: true, // if you provide it
 		// also can be an array of names like ['home', 'second_card']
-		entry: 'my_cool_app.js',
-		styles: 'my_cool_app.css',
 		routes: [{ // <-- if you need an icon in sidebar
 			path: 'mycoolapp', // url: ...site.com/mycoolapp
 			view: 'my_cool_app/my_cool_page', // bundleName/viewName

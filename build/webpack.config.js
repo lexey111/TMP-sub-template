@@ -175,7 +175,9 @@ module.exports = (env, args) => {
 		devServer: {
 			headers: {
 				'Access-Control-Allow-Origin': '*',
-				'Access-Control-Expose-Headers': 'Content-Length'
+				'Access-Control-Expose-Headers': 'Content-Length',
+				'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+				'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
 			},
 			contentBase: path.resolve('./dist'),
 			historyApiFallback: true,
@@ -187,7 +189,7 @@ module.exports = (env, args) => {
 	if (isProduction) {
 		config.optimization.minimize = true;
 		config.optimization.minimizer = [
-			new TerserPlugin(),
+			new TerserPlugin({extractComments: false}),
 			new OptimizeCSSAssetsPlugin({}),
 		]
 	}
